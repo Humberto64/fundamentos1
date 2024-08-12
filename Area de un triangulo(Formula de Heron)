@@ -1,0 +1,31 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <math.h>
+ using namespace std;
+
+int main()
+{
+    //Declaracion de variables
+    float Lado1,Lado2,Lado3,SemiPermietro,Area;
+    //Entrada
+    cout<<"Escribe el primer lado del triangulo: ";
+    cin>>Lado1;
+    cout<<"Escribe el segundo lado del triangulo: ";
+    cin>>Lado2;
+    cout<<"Escribe el tercer lado del triangulo: ";
+    cin>>Lado3;
+    //Proceso
+    SemiPermietro=(Lado1+Lado2+Lado3)/2;
+    Area=sqrt(SemiPermietro*(SemiPermietro-Lado1)*(SemiPermietro-Lado2)*(SemiPermietro-Lado3));
+    //Salida
+    cout<<"El area del triangulo es: "<<Area;
+
+    return 0;
+}
