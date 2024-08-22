@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main () {
+
+string nombre;
+float P, H, S, S1;
+
+cout<<"Ingrese el nombre del trabajador: ";
+cin>>nombre;
+cout<<"Ingrese el pago por hora de "<<nombre<<": ";
+cin>>P;
+cout<<"Ingrese las hras trabajadas en el mes: ";
+cin>>H;
+S=P*H;
+if(S>=8272){
+    S1=S-(S*0.13);
+    cout<<"El salario de "<<nombre<<" menos el impuesto RC-IVA es de: "<<S1;
+}
+else
+  cout<<"El salario de "<<nombre<<" es de: "<<S;
+  
+return 0;
+}
