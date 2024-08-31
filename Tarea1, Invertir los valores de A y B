@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int A, B, C;
+    cout<<"Ingrese dos numeros enteros A y B"<<endl<<"A: ";
+    cin>>A;
+    cout<<"B: ";
+    cin>>B;
+    C = A;
+    A = B;
+    B = C;
+    cout<<"Ahora invertiremos los valores de A y B"<<endl<<"A: "<<A<<endl<<"B: "<<B;
+
+    return 0;
+}
