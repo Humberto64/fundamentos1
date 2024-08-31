@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float A, B;
+    cout<<"Ingrese la primera nota: ";
+    cin>>A;
+    if ((A>=0) && (A<=100)){
+      B = A;
+      cout<<"Ingrese la segunda nota: ";
+      cin>>A;
+        if ((A>=0) && (A<=100)){
+          B += A;
+          cout<<"Ingrese la tercera nota: ";
+          cin>>A;
+            if ((A>=0) && (A<=100)){
+              B += A;
+              cout<<"Ingrese la cuarta nota: ";
+              cin>>A;
+                if ((A>=0) && (A<=100)){
+                  B += A;
+                  cout<<"Ingrese la quinta nota: ";
+                  cin>>A;
+                    if ((A>=0) && (A<=100)){
+                      B += A;
+                      B = B/5;
+                      cout<<"El promedio sera de: "<<B;
+                     }
+                    else{
+                   cout<<"Ingrese una nota valida";
+                }
+                }
+                else{
+               cout<<"Ingrese una nota valida";
+            }
+            }
+            else{
+           cout<<"Ingrese una nota valida";
+        }
+        }
+        else{
+          cout<<"Ingrese una nota valida";
+        }
+    }
+    else{
+      cout<<"Ingrese una nota valida";
+    }
+    return 0;
+}
