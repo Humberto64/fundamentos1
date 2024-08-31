@@ -1,0 +1,48 @@
+#include <iostream>
+#include "math.h"
+
+using namespace std;
+
+int main() {
+    float x1, y1, x2, y2, x3, y3, AB, BC, CA, area, R, pen_AB, pen_BC, pen_perp_AB, pen_perp_BC, mid_AB_x, mid_AB_y, mid_BC_x, mid_BC_y, h, k;
+    //Comenzamos declarando las variables para hacer todas las ecuaciones y operaciones necesarias
+    cout<<"Ingrese las coordenadas del primer punto (x1 y1)"<<endl<<"x1: ";
+    cin>>x1;
+    cout<<"y1: ";
+    cin>>y1;
+    cout<<"Ingrese las coordenadas del segundo punto (x2 y2)"<<endl<<"x2: ";
+    cin>>x2;
+    cout<<"y2: ";
+    cin>>y2;
+    cout<<"Ingrese las coordenadas del tercer punto (x3 y3)"<<endl<<"x3: ";
+    cin>>x3;
+    cout<<"y3: ";
+    cin>>y3;
+    AB = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2)); // Aqui calculamos las longitudes de los lados del triángulo
+    BC = sqrt(pow(x3 - x2, 2) + pow(y3 - y2, 2));
+    CA = sqrt(pow(x1 - x3, 2) + pow(y1 - y3, 2));
+    
+    area = 0.5 * (x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2)); // Luego debemos sacar el área del triángulo con la fórmula del determinante
+    if (area <0) //Este if es para sacar el valor absoluto
+    area = area *-1;
+    
+    R = (AB * BC * CA) / (4 * area); // Calculamos el radio de la circunferencia
+
+    pen_AB = (y2 - y1) / (x2 - x1); // Luego calculamos las pendientes de las lineas AB y BC
+    pen_BC = (y3 - y2) / (x3 - x2);
+
+    pen_perp_AB = -1 / pen_AB;// Luego caculamos las pendientes perpendiculares a las lineas formadas por los puntos
+    pen_perp_BC = -1 / pen_BC;
+
+    mid_AB_x = (x1 + x2) / 2; // Calculamos los puntos medios de las lineas AB y BC
+    mid_AB_y = (y1 + y2) / 2;
+    mid_BC_x = (x2 + x3) / 2;
+    mid_BC_y = (y2 + y3) / 2;
+
+    h = (mid_BC_y - mid_AB_y + pen_perp_AB * mid_AB_x - pen_perp_BC * mid_BC_x) / (pen_perp_AB - pen_perp_BC);
+    k = pen_perp_AB * (h - mid_AB_x) + mid_AB_y; // Calculamos el centro de la circunferencia resolviendo el sistema de ecuaciones
+
+    cout << "Centro de la circunferencia: (" << h << ", " << k << ")" << endl;
+    cout << "Radio de la circunferencia: " << R << endl;  // Finalmente mostramos el centro y el radio
+    return 0;
+}
