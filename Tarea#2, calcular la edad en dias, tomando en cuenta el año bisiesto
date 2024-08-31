@@ -1,0 +1,127 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int diaN, mesN, añoN, diaA, mesA, añoA;
+    cout<<"Ingrese su fecha de nacimiento: "<<endl<<"dia: ";
+    cin>>diaN; 
+    cout<<"mes: ";
+    cin>>mesN;
+    cout<<"año: ";
+    cin>>añoN;
+    cout<<diaN<<"/"<<mesN<<"/"<<añoN<<endl;
+
+    if (mesN < 1 || mesN > 12) {
+        cout << "La fecha de nacimiento no es válida." << endl;
+        return 1;
+    }
+
+    int diasEnMesN;
+    if (mesN == 2) {
+        if ((añoN % 4 == 0 && añoN % 100 != 0) || (añoN % 400 == 0)) {
+            diasEnMesN = 29;  // Año bisiesto
+        } else {
+            diasEnMesN = 28;
+        }
+    } else if (mesN == 4 || mesN == 6 || mesN == 9 || mesN == 11) {
+        diasEnMesN = 30;
+    } else {
+        diasEnMesN = 31;
+    }
+
+    if (diaN < 1 || diaN > diasEnMesN) {
+        cout << "La fecha de nacimiento no es válida." << endl;
+        return 1;
+    }
+
+    cout << "Ingrese la fecha actual (día/mes/año): "<<endl<<"dia: ";
+    cin>>diaA; 
+    cout<<"mes: ";
+    cin>>mesA;
+    cout<<"año: ";
+    cin>>añoA;
+    cout<<diaA<<"/"<<mesA<<"/"<<añoA<<endl;
+
+    if (mesA < 1 || mesA > 12) {
+        cout << "La fecha actual no es válida." << endl;
+        return 1;
+    }
+
+    int diasEnMesA;
+    if (mesA == 2) {
+        if ((añoA % 4 == 0 && añoA % 100 != 0) || (añoA % 400 == 0)) {
+            diasEnMesA = 29;  // Año bisiesto
+        } else {
+            diasEnMesA = 28;
+        }
+    } else if (mesA == 4 || mesA == 6 || mesA == 9 || mesA == 11) {
+        diasEnMesA = 30;
+    } else {
+        diasEnMesA = 31;
+    }
+
+    if (diaA < 1 || diaA > diasEnMesA) {
+        cout << "La fecha actual no es válida." << endl;
+        return 1;
+    }
+
+    int diasNacimiento = 0;
+    int i = 0;
+    while ( i < añoN) {
+        if ((i % 4 == 0 && i % 100 != 0) || (i % 400 == 0)) {
+            diasNacimiento += 366;  // Año bisiesto
+        } else {
+            diasNacimiento += 365;
+        }
+        i++;
+    }
+    
+    i = 1;
+    while (i < mesN) {
+        if (i == 2) {
+            if ((añoN % 4 == 0 && añoN % 100 != 0) || (añoN % 400 == 0)) {
+                diasNacimiento += 29;  // Febrero bisiesto
+            } else {
+                diasNacimiento += 28;
+            }
+        } else if (i == 4 || i == 6 || i == 9 || i == 11) {
+            diasNacimiento += 30;
+        } else {
+            diasNacimiento += 31;
+        }
+         i++;
+    }
+
+    diasNacimiento += diaN;
+    int diasActual = 0;
+    i = 0;
+    while (i < añoA) {
+        if ((i % 4 == 0 && i % 100 != 0) || (i % 400 == 0)) {
+            diasActual += 366;  // Año bisiesto
+        } else {
+            diasActual += 365;
+        }
+        i++;
+    }
+    
+    i = 1; 
+    while (i < mesA) {
+        if (i == 2) {
+            if ((añoA % 4 == 0 && añoA % 100 != 0) || (añoA % 400 == 0)) {
+                diasActual += 29;  // Febrero bisiesto
+            } else {
+                diasActual += 28;
+            }
+        } else if (i == 4 || i == 6 || i == 9 || i == 11) {
+            diasActual += 30;
+        } else {
+            diasActual += 31;
+        }
+        i++;
+    }
+
+    diasActual += diaA;
+    int edadEnDias = diasActual - diasNacimiento;
+    cout << "Su edad en días es: " << edadEnDias << " días." << endl;
+    return 0;
+}
