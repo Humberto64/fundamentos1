@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float r, pi= 3.1415926536, P, A;//Las variables P y A hacen referencia a perimetro y area respectivamente
+    cout<<"Nota: Se van a tomar en cuenta los primeros 10 decimales de pi"<<endl;
+    cout<<"Ingrese el radio de la circunferencia: ";
+    cin>>r;
+    P= 2*r*pi;
+    A= pi*(r*r);
+    cout<<"Estos son sus resultados: "<<endl<<"Perimetro: "<<P<<endl<<"Area: "<<A;
+    return 0;
+}
