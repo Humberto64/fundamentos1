@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    //declarar las variables
+    int opcion, numero1, numero2, numero3, n, m, s; //si opcion se declara como char
+    float promedio, l, a;
+    
+    do{
+        cout<<"Menu"<<endl;
+        cout<<"===="<<endl;
+        cout<<"1. Area de un cuadrado"<<endl;  //Secuencial
+        cout<<"2. Promedio de 3 notas"<<endl;  //Condicional
+        cout<<"3. Suma de los enteros impares en un rango comprendido"<<endl;  //Repetitiva o Serie
+        cout<<"0. Salir del menu"<<endl;  //Cerrar el menu
+        cout<<"Ingrese la opcion que desee: ";
+        cin>>opcion;
+        //se realizan instrucciones dependiendo de la variable opcion
+        switch(opcion){
+            case 1:   //colocar las instrucciones que corresponda a la primera opcion
+              cout<<"Escribe el lado del cuadrado: ";
+              cin>>l;
+              a=l*l;
+              cout<<"El area del cuadrado es: "<<a<<endl;
+            break;
+            case 2:
+              cout<<"Ingrese la primer nota (entre 0 y 10): ";
+              cin>>numero1;
+              if ((numero1>=0) && (numero1<=10)){
+                  cout<<"Ingrese la segunda nota (entre 0 y 10): ";
+                  cin>>numero2;
+                  if ((numero2>=0) &&(numero2<=10)){
+                      cout<<"Ingrese la tercera nota (entre 0 y 10): ";
+                      cin>>numero3;
+                      if ((numero3>=0) && (numero3<=10)){
+                         promedio = (numero1 + numero2 + numero3)/3.0;
+                         cout<<"El promedio es de: "<< promedio<<endl;
+                      }
+                      else
+                         cout<<"Error, tercer numero no valido"<<endl;
+                 }
+                 else
+                      cout<<"Error, segundo numero no valido"<<endl;
+              }
+              else 
+                cout<<"Error, primer numero no valido"<<endl;
+            break;
+            case 3:
+               s=0;
+              cout<<"Ingrese el numero del cual se sumaran los impares comprendidos entre el numero y 1: ";
+              cin>>m;
+              n=1;
+              while(n<=m){
+                  s = n + s;
+                  n += 2;
+              }
+              cout<<"La suma de los impares comprendidos entre "<<m<<" y 1 es: "<<s<<endl;
+            break;
+            case 0: cout<<"Salir"<<endl;
+            break;
+            default: cout<<"Opcion invalida"<<endl;
+        }
+    } while(opcion !=0);
+    
+
+    return 0;
+}
