@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i=0, dia, promedio, contador=0, montodia, acumulador=0, cantidaddias, diasup=0, diainf=0, diaigual=0;
+    
+    while (contador<7){
+        do{
+        cout<<"Ingresar el monto vendido: ";
+        cin>>montodia;
+        } while(montodia<0);
+        acumulador = acumulador + montodia;
+        contador++;
+    }
+    promedio = acumulador/contador;
+    cout<<"Ingresa el numero de dias para verificar el monto: ";
+    cin>>cantidaddias;
+    while(i<cantidaddias){
+        cout<<"Ingresa el promedio del dia: ";
+        cin>>dia;
+        if (dia>promedio)
+        diasup= diasup+ 1;
+        else{
+            if (dia==promedio)
+            diaigual = diaigual+ 1;
+        else {
+            diainf = diainf+ 1;
+        }
+        }
+        i++;
+    }
+    cout<<"La cantidad de dias superior al promedio es: "<<diasup;
+    cout<<"La cantidad de dias inferior al promedio es: "<<diainf;
+    cout<<"La cantidad de dias igual al promedio es: "<<diaigual;
+
+    return 0;
+}
