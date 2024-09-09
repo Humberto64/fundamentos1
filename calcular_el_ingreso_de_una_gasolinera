@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float gas, diesel, etanol, total;
+    cout<<"Ingrese la cantidad vendida de gasolina por litro: ";
+    cin>>gas;
+    gas= gas* 3.50;
+    cout<<"Ingrese la cantidad vendida de diesel por litro: ";
+    cin>>diesel;
+    diesel= diesel* 4;
+    cout<<"Ingrese la cantidad vendida de etanol por litro: ";
+    cin>>etanol;
+    etanol= etanol* 2.50;
+    total= gas+ diesel+ etanol;
+    cout<<"El ingreso total del dia es de: "<<total<<"bs";
+
+    return 0;
+}
