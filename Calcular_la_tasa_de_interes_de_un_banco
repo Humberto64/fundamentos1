@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float años, saldo, interes, total;
+    cout<<"Ingrese la antigüedad de su cuenta: ";
+    cin>>años;
+    cout<<"Ingrese su saldo: ";
+    cin>>saldo;
+    if (años>3) {
+        if (saldo>5000)
+            interes = saldo * 0.03;
+        else {
+            interes = saldo * 0.02;
+        }
+    }
+    else{
+        if ((años<3) && (saldo>5000))
+            interes = saldo * 0.025;
+        else{
+            interes = saldo * 0.015;
+        }
+    }
+    
+    total = saldo - interes;
+    cout<<"La tasa de interes es de: "<<interes<<endl;
+    cout<<"Y su saldo restante es de: "<<total;
+
+    return 0;
+}
