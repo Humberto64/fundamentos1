@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, s=0, i=0, m;
+    do{
+        cout<<"Ingrese un numero entero: ";
+        cin>>n;
+    }while (n<=0);
+    
+    while (n>0){
+         m = n%10;
+        if (m%2==0){
+            s = m + s;
+        }else{
+            i = m + i;
+        }
+        n = n-m;
+        n = n/10;
+    }
+    cout<<"La suma de los numeros pares del digito ingresado es: "<<s<<endl;
+    cout<<"La suma de los numeros impares del digito ingresado es: "<<i;
+
+    return 0;
+}
