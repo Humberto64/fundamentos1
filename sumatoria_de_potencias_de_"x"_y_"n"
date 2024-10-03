@@ -1,0 +1,25 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    float x, n, s=0;
+    do{
+    cout<<"Ingrese un numeo real n: ";
+    cin>>n;
+    } while(n<=0);
+    do{
+    cout<<"Ingrese un numeo entero x: ";
+    cin>>x;
+    } while(x<=0);
+    
+    for (int i=1;i<=n;i++){
+        s = s+pow(x,i);
+        cout<<pow(x,i)<<" + ";
+    }
+    cout<<"La sumatoria es de: "<<s;
+    
+    return 0;
+}
