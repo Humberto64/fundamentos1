@@ -1,0 +1,98 @@
+//Primer pregunta del examen
+#include <iostream>
+#include "math.h"
+using namespace std;
+
+int main()
+{
+    float n, x, c=0, i=1;
+    cout<<"Ingrese un numero real X el cual se va sumar con su respectiva potencia: ";
+    cin>>x;
+    cout<<"En ingrese un numero entero hasta el cual elevar al numero real: ";
+    cin>>n;
+    if (n>0){
+        while (n>=i){
+            c = c + pow(x,i);
+            i++;
+        }
+        cout<<"La suma de: "<<x<< " hasta su potencia: "<<n<<" es de: "<<c;
+    }
+    else {
+        cout<<"El numero esta fuera de rango";
+    }
+
+    return 0;
+}
+
+//Segunda pregunta del examen
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float ventas, comision;
+    do{
+    cout<<"Ingrese el total de sus ventas mensuales: ";
+    cin>>ventas;
+    } while (ventas<0);
+    
+    if (ventas<10000)
+        cout<<"No hay comision a pagar: ";
+    else 
+        if ((ventas>=10000) && (ventas<=50000)){
+            comision = ventas + (ventas * 0.05);
+            cout<<"La comision a pagar es: "<<comision;
+        }
+        else 
+            if (ventas>50000){
+                comision = ventas + (ventas * 0.08);
+                cout<<"La comision a pagar es: "<<comision;
+            }
+
+    return 0;
+}
+
+//Tercer pregunta del examen
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, max, min, prom, cant, sum=0, nmax, nmin;
+    do {
+    cout<<"Ingrese la cantidad de items: ";
+    cin>>n;
+    } while(n<0);
+    
+    for (int i=1; n>=i; i++){
+        cout<<"Ingrese la cantidad del item "<<i<<": ";
+        cin>>cant;
+        sum = sum + cant;
+        if (i==1){
+            max=cant;
+            min=cant;
+            nmax = 1;
+            nmin = 1;
+        }
+        if (cant>max){
+            max=cant;
+            nmax = i;
+        }
+        if (cant<min){
+            min=cant;
+            nmin = i;
+        }
+        if (n==i)
+            prom= sum/i;
+    }
+    
+    cout<<"La cantidad total de los items es: "<<sum<<endl;
+    cout<<"Mayor cantidad: "<<max<<" del item "<<nmax<<endl;
+    cout<<"Menor cantidad: "<<min<<" del item "<<nmin<<endl;
+    cout<<"El promedio de los items es: "<<prom;
+
+    return 0;
+}
