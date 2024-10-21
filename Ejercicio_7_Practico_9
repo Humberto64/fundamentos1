@@ -1,0 +1,31 @@
+// ejercicio_7_Practico_9.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+// Autor: Humberto Escobar Moreno
+
+#include <iostream>
+
+using namespace std;
+
+int FAC(int x);
+
+int main()
+{
+    int n, r, c;
+    do {
+        cout << "Ingrese dos numeros enteros positivos, para calcular el numero combinatorio: "<<endl;
+        cout << "N: "; cin >> n;
+        cout << "R: "; cin >> r;
+    } while ((n < 0) || (r < 0) || (n < r));
+
+    c = FAC(n) / (FAC(r) * FAC(n - r));
+    cout << "El numero combinatorio es: " << c;
+
+    return 0;
+}
+
+int FAC(int x) {
+    int f = 1;
+    for (int i = 1; x >= i; i++)
+        f = f * i;
+
+    return f;
+}
