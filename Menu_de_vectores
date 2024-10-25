@@ -1,0 +1,128 @@
+#include <iostream>
+#define MAX 100
+
+using namespace std;
+
+void Cargar(int vec[], int n);
+void Mostrar(int vec[], int n);
+void Sumar (int vec1[], int vec2[], int n);
+float Promedio (int vec[], int n);
+int EncontrarMayor (int vec[], int n);
+int EncontrarMenor (int vec[], int n);
+
+int main()
+{
+    int n, A[MAX], B[MAX], opcion=0, m;
+    do{
+        cout<<"Ingrese el tamaño de los vectores: ";
+        cin>>n;
+    } while ((n<=0)||(n>MAX));
+    
+    cout<<"Primer vector: "<<endl;
+    Cargar (A, n);
+    cout<<"Segundo vector: "<<endl;
+    Cargar (B, n);
+    
+    do{
+        cout<<"MENU"<<endl;
+        cout<<"============"<<endl;
+        cout<<"1. Mostrar vectores"<<endl;
+        cout<<"2. Sumar dos vectores"<<endl;
+        cout<<"3. Promedio"<<endl;
+        cout<<"4. Elemento mayor de un vector"<<endl;
+        cout<<"5. Elemento menor de un vector"<<endl;
+        cout<<"0. Salir"<<endl;
+        cin>>opcion;
+        switch(opcion){
+            case 1:
+            cout<<"Primer Vector: "<<endl;
+            Mostrar(A, n);
+            cout<<"Segundo Vector: "<<endl;
+            Mostrar(B, n);
+            break;
+            case 2:
+                Sumar (A, B, n);
+            break;
+            case 3:
+                cout<<"De cual vector se quiere saber el promedio?";
+                cin>>m;
+                if (m==1)
+                    cout<<"El promedio del primer vector es: "<<Promedio(A, n)<<endl;
+                if (m==2)
+                    cout<<"El promedio del segundo vector es: "<<Promedio(B, n)<<endl;
+            break;
+            case 4:
+                cout<<"De cual vector se quiere saber su elemento mayor?";
+                cin>>m;
+                if (m==1)
+                    cout<<"El elemnto mayor del primer vector es: "<<EncontrarMayor(A, n)<<endl;
+                if (m==2)
+                    cout<<"El elemento mayor del segundo vector es: "<<EncontrarMayor(B, n)<<endl;
+            break;
+            case 5:
+                cout<<"De cual vector se quiere saber su elemento menor?";
+                    cin>>m;
+                    if (m==1)
+                        cout<<"El elemnto menor del primer vector es: "<<EncontrarMenor(A, n)<<endl;
+                    if (m==2)
+                        cout<<"El elemento menor del segundo vector es: "<<EncontrarMenor(B, n)<<endl;
+            break;
+            case 0:
+                cout<<"Salir";
+            break;
+            default:
+                cout<<"Opcion Invalida";
+            break;
+        }
+    } while (opcion!=0);
+
+    return 0;
+} 
+
+void Cargar(int vec[],int n){
+    	for (int i=0;i<n;i++)
+	{
+		cout<<"Vector["<<i<<"]= ";
+		cin>>vec[i];
+	}
+}
+
+void Mostrar(int vec[],int n)
+{
+	for (int i=0;i<n;i++)
+		cout<<"Vector["<<i<<"]= "<<vec[i]<<endl;
+}
+
+void Sumar (int vec1[], int vec2[], int n){
+    int vec3[n];
+    for (int i=0; i<n; i++){
+        vec3[i] = vec1[i] + vec2[i];
+        cout<<"Vector["<<i<<"]= "<<vec3[i]<<endl;
+    }
+}
+
+float Promedio (int vec[], int n){
+    float prom=vec[0];
+    for (int i=1; i<n; i++)
+        prom = prom + vec[i];
+
+    return prom/n;
+}
+
+int EncontrarMayor (int vec[], int n){
+    int mayor=vec[0];
+    for (int i=1; i<n; i++)
+        if(mayor<vec[i])
+            mayor=vec[i];
+            
+    return mayor;
+}
+
+int EncontrarMenor (int vec[], int n){
+    int menor=vec[0];
+    for (int i=1; i<n; i++)
+        if(menor>vec[i])
+            menor=vec[i];
+            
+    return menor;
+}
