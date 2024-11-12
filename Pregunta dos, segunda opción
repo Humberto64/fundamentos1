@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+float descuento (float precio, float desc);
+
+int main(){
+float p, desc;
+do {
+cout << "Introduzca el precio de su producto: ";
+cin >> p;
+} while (p <= 0);
+do {
+cout << "Introduzca el porcentaje de descuento: ";
+cin >> desc;
+} while (desc < 0 || desc > 100);
+
+cout << "El total de su producto es: " << descuento(p, desc);
+}
+
+float descuento (float precio, float desc) {
+float total;
+desc= desc / 100;
+total = precio (precio desc);
+
+return total;
+}
